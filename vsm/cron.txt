@@ -1,0 +1,5 @@
+*/10 * * * * root /home/vt_admin/yang/vsm/setup_fail_count/count_setup_fail.sh
+* * * * * root /home/vt_admin/yang/vsm/vod_service/gather.py
+*/10 * * * * root /home/vt_admin/yang/vsm/disk/collect_status.sh
+00 04 * * * root /home/vt_admin/yang/vsm/hitcount/collect_log.sh 1
+00 03 * * * root /home/vt_admin/yang/vsm/vod_setup_result/collect_log.sh 1

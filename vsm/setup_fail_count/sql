@@ -1,0 +1,4 @@
+select channelid,eventid,filename,begindatetime,enddatetime,expiredatetime,tvodtransactionid,tvodfilesize,tvodstatus
+from assetinstaller_hybrid_tvod
+where filename in (
+)

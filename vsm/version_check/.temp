@@ -1,0 +1,3 @@
+spawn /usr/bin/ssh -o ConnectTimeout=3 10.73.227.195 ls -l /castis/bin/CiLFMServer/CiLFMServer
+vt_admin@10.73.227.195's password: 
+lrwxrwxrwx 1 root root 25 Jul  4 00:21 /castis/bin/CiLFMServer/CiLFMServer -> CiLFMServer_64_v3.3.2.QR3

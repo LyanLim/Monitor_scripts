@@ -1,0 +1,92 @@
+#!/bin/sh
+
+_VSM_HOME=/home/vt_admin/yang/vsm
+_SCRIPT_HOME=$_VSM_HOME/setup_fail_count
+
+if [ $# -eq 0 ];then
+	_date=`date +%F -d"1 day ago"`
+elif [ $# -eq 1 ];then
+	_date=$1
+else
+	echo "Usage:$0 [YYYY-MM-DD]    ex) $0 2015-06-30"
+	exit 1
+fi
+
+_temp=$_SCRIPT_HOME/.temp
+_file_list_dir=$_SCRIPT_HOME/${_date:0:7}/$_date
+
+[ -d $_file_list_dir ] || mkdir -p $_file_list_dir
+
+###########################################################
+# OTT
+###########################################################
+
+echo "DATE,IP,HOST,TSTV,TVOD,RVOD" > $_SCRIPT_HOME/report/report_request_fail_$_date.csv
+for line in `cat $_VSM_HOME/ip_list/lsm_ott_active`
+#for line in HLC_OTT_LSM,10.60.69.132
+do
+	host=`echo $line | cut -d, -f1`
+	ip=`echo $line | cut -d, -f2`
+
+	command="grep OnOnDemandSessionResponse /castis/log/glb_log/${_date:0:7}/$_date* | grep -v 'result is success' | cut -d, -f11 | sed -e 's/^[[:space:]]*//'"
+
+	$_SCRIPT_HOME/run_command.sh $ip "$command" > $_temp
+	dos2unix $_temp
+
+	egrep -o "^[0-9]*\.[a-zA-Z0-9]*" $_temp | cut -d'[' -f2 | cut -d']' -f1 > $_file_list_dir/$host.tstv.fail.list
+	egrep -o "^[0-9]{14}_[0-9]*_[0-9]*\.[a-zA-Z0-9]*" $_temp | cut -d'[' -f2 | cut -d']' -f1  > $_file_list_dir/$host.tvod.fail.list
+	egrep -o "^[0-9]*_[1-5]\.[a-zA-Z0-9]*" $_temp | cut -d'[' -f2 | cut -d']' -f1 > $_file_list_dir/$host.rvod.fail.list
+
+	TSTV=`wc -l $_file_list_dir/$host.tstv.fail.list | awk '{print $1}'`
+	TVOD=`wc -l $_file_list_dir/$host.tvod.fail.list | awk '{print $1}'`
+	RVOD=`wc -l $_file_list_dir/$host.rvod.fail.list | awk '{print $1}'`
+
+	echo "$_date,$ip,$host,$TSTV,$TVOD,$RVOD" >> $_SCRIPT_HOME/report/report_request_fail_$_date.csv
+
+done
+
+###########################################################
+# Hybrid
+###########################################################
+
+#HLC nPVR 172.23.58.6
+#HKH nPVR 172.23.66.6
+#HHT nPVR 172.23.74.6
+
+for line in `cat $_VSM_HOME/ip_list/lsm_cv_active`
+do
+	host=`echo $line | cut -d, -f1`
+	ip=`echo $line | cut -d, -f2`
+
+	if [ `echo $host | grep CV[1-3] -c` -eq 1 ];then
+		nPVR_LSM_IP=172.23.58.6
+
+	elif [ `echo $host | grep CV[56] -c` -eq 1 ];then
+		nPVR_LSM_IP=172.23.66.6
+
+		#nPVR_LSM_IP=172.23.64.6
+
+	elif [ `echo $host | grep CV[7-9] -c` -eq 1 ];then
+		nPVR_LSM_IP=172.23.74.6
+	else
+		continue
+	fi
+
+	command="grep OnDescribeResponse /castis/log/glb_log/${_date:0:7}/$_date* | grep -v 'result is success' | grep $nPVR_LSM_IP"
+
+	$_SCRIPT_HOME/run_command.sh $ip "$command" > $_temp
+	dos2unix $_temp
+
+	egrep -o "AssetID\[[0-9]*\.[a-zA-Z0-9]*\]" $_temp | cut -d'[' -f2 | cut -d']' -f1 > $_file_list_dir/$host.tstv.fail.list
+	egrep -o "AssetID\[[0-9]{14}_[0-9]*_[0-9]*\.[a-zA-Z0-9]*\]" $_temp | cut -d'[' -f2 | cut -d']' -f1  > $_file_list_dir/$host.tvod.fail.list
+	egrep -o "AssetID\[[0-9]*_[1-5]\.[a-zA-Z0-9]*\]" $_temp | cut -d'[' -f2 | cut -d']' -f1 > $_file_list_dir/$host.rvod.fail.list
+
+	TSTV=`wc -l $_file_list_dir/$host.tstv.fail.list | awk '{print $1}'`
+	TVOD=`wc -l $_file_list_dir/$host.tvod.fail.list | awk '{print $1}'`
+	RVOD=`wc -l $_file_list_dir/$host.rvod.fail.list | awk '{print $1}'`
+
+	echo "$_date,$ip,$host,$TSTV,$TVOD,$RVOD" >> $_SCRIPT_HOME/report/report_request_fail_$_date.csv
+	chmod 755 $_SCRIPT_HOME/report/report_request_fail_$_date.csv
+done 
+
+#sort ${_file_list_dir}/* | uniq -c | sort -n > /castis/bin/CiVSMAdmin/setup_fail_count.txt

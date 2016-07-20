@@ -1,0 +1,4 @@
+spawn /usr/bin/ssh -o ConnectTimeout=600 -l vt_admin 10.73.226.7 echo -n TVOD:;find /DATA05 -maxdepth 1 -name '*.mpg' -newermt 2016-07-10 ! -newermt 2016-07-11 | egrep ^/DATA05/[0-9]{14}_[0-9]*_[0-9]*.mpg -c | tr -d '\n' ;echo -n /;find /DATA05 -maxdepth 1 -name '*.mpg' | egrep ^/DATA05/[0-9]{14}_[0-9]*_[0-9]*.mpg -c;echo -n RVOD:;find /DATA05 -maxdepth 1 -type f -newermt 2016-07-10 ! -newermt 2016-07-11 | egrep ^/DATA05/[0-9]*_[1-5].[mt] -c | tr -d '\n' ;echo -n /;find /DATA05 -maxdepth 1 -type f | egrep ^/DATA05/[0-9]*_[1-5].[mt] -c
+vt_admin@10.73.226.7's password: 
+TVOD:0/0
+RVOD:0/657

@@ -1,0 +1,101 @@
+# South OTT
+South_OTT-LSM_01,10.73.226.132
+South_OTT-LSM_02,10.73.226.133
+South_OTT-VOD_01,10.73.226.134
+South_OTT-VOD_02,10.73.226.135
+South_OTT-VOD_03,10.73.226.136
+South_OTT-VOD_04,10.73.226.137
+South_OTT-VOD_05,10.73.226.138
+South_OTT-VOD_06,10.73.226.139
+South_OTT-VOD_07,10.73.226.140
+# South Hybrid
+South_Hybrid-LSM_01,10.73.226.66
+South_Hybrid-LSM_02,10.73.226.67
+South_Hybrid-VOD_01,10.73.226.68
+South_Hybrid-VOD_02,10.73.226.69
+South_Hybrid-VOD_03,10.73.226.70
+South_Hybrid-VOD_04,10.73.226.71
+South_Hybrid-VOD_05,10.73.226.72
+South_Hybrid-VOD_06,10.73.226.73
+South_Hybrid-VOD_07,10.73.226.74
+South_Hybrid-VOD_08,10.73.226.75
+South_Hybrid-VOD_09,10.73.226.76
+South_Hybrid-VOD_10,10.73.226.77
+South_Hybrid-VOD_11,10.73.226.78
+South_Hybrid-VOD_12,10.73.226.79
+South_Hybrid-VOD_13,10.73.226.80
+South_Hybrid-VOD_14,10.73.226.81
+South_Hybrid-VOD_15,10.73.226.82
+South_Hybrid-VOD_16,10.73.226.83
+# South nPVR
+South_nPVR-LSM_01,10.73.226.4
+South_nPVR-LSM_02,10.73.226.5
+South_nPVR-VOD_01,10.73.226.6
+South_nPVR-VOD_02,10.73.226.7
+# North Hybrid
+North_Hybrid-LSM_01,10.60.69.66
+North_Hybrid-LSM_02,10.60.69.67
+North_Hybrid-VOD_01,10.60.69.68
+North_Hybrid-VOD_02,10.60.69.69
+North_Hybrid-VOD_03,10.60.69.70
+North_Hybrid-VOD_04,10.60.69.71
+North_Hybrid-VOD_05,10.60.69.72
+North_Hybrid-VOD_06,10.60.69.73
+North_Hybrid-VOD_07,10.60.69.74
+North_Hybrid-VOD_08,10.60.69.75
+North_Hybrid-VOD_09,10.60.69.76
+North_Hybrid-VOD_10,10.60.69.77
+North_Hybrid-VOD_11,10.60.69.78
+North_Hybrid-VOD_12,10.60.69.79
+North_Hybrid-VOD_13,10.60.69.80
+North_Hybrid-VOD_14,10.60.69.81
+North_Hybrid-VOD_15,10.60.69.82
+North_Hybrid-VOD_16,10.60.69.83
+North_Hybrid-VOD_17,10.60.69.84
+North_Hybrid-VOD_18,10.60.69.85
+# North OTT
+North_OTT-LSM_01,10.60.69.132
+North_OTT-LSM_02,10.60.69.133
+North_OTT-VOD_01,10.60.69.134
+North_OTT-VOD_02,10.60.69.135
+North_OTT-VOD_03,10.60.69.136
+North_OTT-VOD_04,10.60.69.137
+North_OTT-VOD_05,10.60.69.138
+North_OTT-VOD_06,10.60.69.139
+North_OTT-VOD_07,10.60.69.140
+# North nPVR
+North_nPVR-LSM_01,10.60.69.4
+North_nPVR-LSM_02,10.60.69.5
+North_nPVR-VOD_01,10.60.69.6
+North_nPVR-VOD_02,10.60.69.7
+# Middle OTT
+Middle_OTT-LSM_01,10.42.9.132
+Middle_OTT-LSM_02,10.42.9.133
+Middle_OTT-VOD_01,10.42.9.134
+Middle_OTT-VOD_02,10.42.9.135
+Middle_OTT-VOD_03,10.42.9.136
+Middle_OTT-VOD_04,10.42.9.137
+Middle_OTT-VOD_05,10.42.9.138
+Middle_OTT-VOD_06,10.42.9.139
+Middle_OTT-VOD_07,10.42.9.140
+# Middle Hybrid
+Middle_Hybrid-LSM_01,10.42.9.66
+Middle_Hybrid-LSM_02,10.42.9.67
+Middle_Hybrid-VOD_01,10.42.9.68
+Middle_Hybrid-VOD_02,10.42.9.69
+Middle_Hybrid-VOD_03,10.42.9.70
+Middle_Hybrid-VOD_04,10.42.9.71
+Middle_Hybrid-VOD_05,10.42.9.72
+Middle_Hybrid-VOD_06,10.42.9.73
+Middle_Hybrid-VOD_07,10.42.9.74
+Middle_Hybrid-VOD_08,10.42.9.75
+Middle_Hybrid-VOD_09,10.42.9.76
+Middle_Hybrid-VOD_10,10.42.9.77
+Middle_Hybrid-VOD_11,10.42.9.78
+Middle_Hybrid-VOD_12,10.42.9.79
+Middle_Hybrid-VOD_13,10.42.9.80
+# Middle nPVR
+Middle_nPVR-LSM_01,10.42.9.4
+Middle_nPVR-LSM_02,10.42.9.5
+Middle_nPVR-VOD_01,10.42.9.6
+Middle_nPVR-VOD_02,10.42.9.7
