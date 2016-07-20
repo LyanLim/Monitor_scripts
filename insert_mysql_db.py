@@ -13,4 +13,3 @@ db_config = {
 
 cnx = mysql.connector.connect(**db_con)
 
-db_config
